@@ -1,13 +1,11 @@
 model Product {
-    id     Int     @id @default(autoincrement())
-    name   String
-    price  Float
-    stock  Int
-    imgUrl String?
-
-    uploadedById Int
-    uploadedBy   User @relation(fields: [uploadedById], references: [id])
-
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+  id           String   @id @default(uuid())
+  name         String
+  price        Float
+  stock        Int
+  imgUrl       String?
+  uploadedById String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  uploadedBy   User     @relation(fields: [uploadedById], references: [id])
 }

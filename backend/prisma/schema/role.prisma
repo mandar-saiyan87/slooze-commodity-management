@@ -1,4 +1,4 @@
 enum Role {
-    MANAGER
-    STORE_KEEPER
+  MANAGER
+  STORE_KEEPER
 }
