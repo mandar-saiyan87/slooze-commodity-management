@@ -1,0 +1,4 @@
+enum Role {
+    MANAGER
+    STORE_KEEPER
+}
