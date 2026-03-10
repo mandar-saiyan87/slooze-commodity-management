@@ -1,8 +1,9 @@
 model Product {
   id           String   @id @default(uuid())
   name         String
+  description  String?
   price        Float
-  stock        Int
+  stock        Int      @default(0)
   imgUrl       String?
   uploadedById String
   createdAt    DateTime @default(now())
