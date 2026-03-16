@@ -1,0 +1,42 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateUserInput {
+  email: String!
+  password: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type LoginResponse {
+  accessToken: String!
+  role: String!
+}
+
+type Mutation {
+  createUser(data: CreateUserInput!): UserCreateResponse!
+  login(data: LoginInput!): LoginResponse!
+}
+
+type ProductResponse {
+  id: String!
+  imgUrl: String!
+  name: String!
+  price: Float!
+  stock: Int!
+  uploadedById: String!
+}
+
+type Query {
+  products: [ProductResponse!]
+}
+
+type UserCreateResponse {
+  email: String!
+  id: String!
+  role: String!
+}
