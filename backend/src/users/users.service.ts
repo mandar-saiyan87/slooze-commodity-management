@@ -1,8 +1,7 @@
 import { ConflictException, Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service'
-import { CreateUserInput } from './dto/create-user.input';
 import * as bcrypt from 'bcrypt'
-import { Role } from '../../prisma/src/generated/prisma';
+import { Role } from '../../prisma/src/generated/prisma/enums';
 
 @Injectable()
 export class UsersService {

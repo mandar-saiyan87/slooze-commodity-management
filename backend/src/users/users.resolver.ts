@@ -6,7 +6,7 @@ import { UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from '../guards/jwt.guard';
 import { Roles } from '../guards/roles.decorator';
 import { RolesGuard } from '../guards/roles.guard';
-import { Role } from '../../prisma/src/generated/prisma';
+import { Role } from '../../prisma/src/generated/prisma/enums';
 
 
 
