@@ -13,28 +13,28 @@ export class AuthService {
     ) { }
 
     async login(email: string, password: string) {
-        const user = await this.userService.findByEmail(email);
+        const userExist = await this.userService.findByEmail(email);
 
-        if (!user) {
+        if (!userExist) {
             throw new NotFoundException('User not found');
         }
 
-        const matchPassword = await bcrypt.compare(password, user.password);
+        const matchPassword = await bcrypt.compare(password, userExist.password);
 
         if (!matchPassword) {
             throw new UnauthorizedException('Invalid credentials');
         }
 
         const payload = {
-            userId: user.id,
-            role: user.role
+            userId: userExist.id,
+            role: userExist.role
         }
 
         const accessToken = this.jwtService.sign(payload);
 
         return {
             accessToken,
-            role: user.role
+            role: userExist.role
         }
     }
 }
