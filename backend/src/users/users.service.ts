@@ -16,11 +16,7 @@ export class UsersService {
 
     async createStoreKeeper(email: string, password: string) {
 
-        const userExist = await this.prisma.user.findUnique({
-            where: {
-                email
-            }
-        })
+        const userExist = await this.findByEmail(email)
 
         if (userExist) {
             throw new ConflictException('User already exist')

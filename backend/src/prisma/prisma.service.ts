@@ -1,5 +1,6 @@
 import { Injectable, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
 import { PrismaClient } from '../../prisma/src/generated/prisma/client';
+import { PrismaNeon } from '@prisma/adapter-neon';
 import { PrismaPg } from '@prisma/adapter-pg';
 import { ConfigService } from '@nestjs/config';
 import 'dotenv/config'
@@ -21,7 +22,7 @@ export class PrismaService extends PrismaClient implements OnModuleInit, OnModul
 
     constructor(private configService: ConfigService) {
 
-        const adapter = new PrismaPg({
+        const adapter = new PrismaNeon({
             connectionString: configService.get<string>('DATABASE_URL')
         })
         // const adapter = new PrismaNeon({
